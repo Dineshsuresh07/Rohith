@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Rohith eh 🎉</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #ffdde1, #ee9ca7);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      text-align: center;
+    }
+    h1 {
+      font-size: 3rem;
+      color: #fff;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.4);
+      animation: glow 2s infinite alternate;
+    }
+    h2 {
+      font-size: 1.5rem;
+      color: #fff;
+      margin-bottom: 20px;
+      animation: fadeIn 3s ease-in-out;
+    }
+    img {
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 6px solid #fff;
+      box-shadow: 0px 4px 25px rgba(255,0,100,0.6);
+      margin-bottom: 20px;
+      animation: pulse 3s infinite;
+    }
+
+    /* Animations */
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #ff9a9e, 0 0 20px #fad0c4; }
+      to { text-shadow: 0 0 20px #ff758c, 0 0 40px #ff7eb3; }
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Balloons */
+    .balloon {
+      position: absolute;
+      bottom: -150px;
+      width: 80px;
+      height: 100px;
+      background: red;
+      border-radius: 50% 50% 45% 45%;
+      animation: floatUp 10s linear infinite;
+      z-index: 0;
+    }
+    .balloon:before {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      width: 2px;
+      height: 40px;
+      background: #555;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(-120vh) rotate(20deg); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <h1>🎂 Porandha naal vaazhuthukkal Rohith eh! 🎂</h1>
+  <h2>Wishing you joy, love & happiness on your special day - by DINESH</h2>
+
+  <!-- Replace with Harini's image -->
+  <img src="rohith.jpg" alt="rohith's Picture">
+
+  <!-- Hidden Spotify Player for Autoplay -->
+  <iframe id="spotifyPlayer" style="display:none;"
+    src="https://open.spotify.com/embed/track/7GWOtx8OmL8F0F07aHLYZH?si=wjSAcXpPT322A5Wwf22kRA?utm_source=generator&autoplay=1"
+    width="300" height="150" frameBorder="0" allow="autoplay; encrypted-media">
+  </iframe>
+
+  <!-- Balloons -->
+  <script>
+    function createBalloon() {
+      const balloon = document.createElement("div");
+      balloon.classList.add("balloon");
+      balloon.style.left = Math.random() * window.innerWidth + "px";
+      balloon.style.background = `hsl(${Math.random() * 360}, 70%, 60%)`;
+      balloon.style.animationDuration = (5 + Math.random() * 5) + "s";
+      document.body.appendChild(balloon);
+
+      setTimeout(() => balloon.remove(), 10000);
+    }
+    setInterval(createBalloon, 800);
+
+    // Try autoplay workaround
+    document.body.addEventListener("click", () => {
+      const player = document.getElementById("spotifyPlayer");
+      player.style.display = "block"; // Show after click
+    }, { once: true });
+  </script>
+</body>
+</html>
